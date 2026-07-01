@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+
+{% block title %}SecureWeb - Cyber Crime Awareness Portal{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section text-center text-lg-start">
+    <div class="row align-items-center">
+        <div class="col-lg-6 mb-4 mb-lg-0">
+            <span class="stats-badge"><i class="fa-solid fa-shield-halved"></i> Guarding the Digital Space</span>
+            <h1 class="hero-title">Protect Yourself in the Cyber World</h1>
+            <p class="hero-subtitle mb-4">
+                As technology advances, so do the methods of digital criminals. SecureWeb is a simplified portal designed to educate you on common cyber frauds, key safety guidelines, and how to defend yourself from internet scams.
+            </p>
+            <div class="d-flex flex-column flex-sm-row gap-3">
+                <a href="/crimes" class="btn btn-custom-primary btn-lg"><i class="fa-solid fa-shield-virus me-2"></i>Explore Crime Types</a>
+                <a href="/quiz" class="btn btn-custom-secondary btn-lg"><i class="fa-solid fa-gamepad me-2"></i>Test Your Awareness</a>
+            </div>
+        </div>
+        <div class="col-lg-6 text-center">
+            <!-- Floating Security SVG Graphic -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 400" width="100%" height="auto" style="max-height: 320px;">
+                <defs>
+                    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#2563eb;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#06b6d4;stop-opacity:1" />
+                    </linearGradient>
+                    <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#7c3aed;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#a855f7;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+                <!-- Background decorative shapes -->
+                <circle cx="150" cy="180" r="120" fill="url(#shieldGrad)" opacity="0.05" />
+                <circle cx="360" cy="220" r="90" fill="url(#purpleGrad)" opacity="0.05" />
+                <path d="M 50,150 L 450,150" stroke="rgba(6, 182, 212, 0.1)" stroke-width="2" stroke-dasharray="5 5" />
+                <path d="M 250,50 L 250,350" stroke="rgba(6, 182, 212, 0.1)" stroke-width="2" stroke-dasharray="5 5" />
+                
+                <!-- Shield Graphic -->
+                <path d="M 250,80 Q 330,80 350,140 Q 350,260 250,320 Q 150,260 150,140 Q 170,80 250,80 Z" fill="url(#shieldGrad)" filter="drop-shadow(0px 10px 20px rgba(37,99,235,0.25))" />
+                
+                <!-- Inner shield checkmark or lock design -->
+                <path d="M 250,110 L 250,290" stroke="rgba(255,255,255,0.15)" stroke-width="6" />
+                <path d="M 160,180 L 340,180" stroke="rgba(255,255,255,0.15)" stroke-width="6" />
+                
+                <!-- Lock center element -->
+                <rect x="220" y="170" width="60" height="50" rx="10" fill="#ffffff" />
+                <path d="M 230,170 L 230,150 A 20,20 0 0 1 270,150 L 270,170" fill="none" stroke="#ffffff" stroke-width="6" />
+                <circle cx="250" cy="190" r="6" fill="url(#shieldGrad)" />
+                <rect x="247" y="196" width="6" height="15" fill="url(#shieldGrad)" />
+            </svg>
+        </div>
+    </div>
+</section>
+
+<!-- Overview / Features Section -->
+<div class="row g-4 my-5">
+    <div class="col-md-4">
+        <div class="glass-card p-4 text-center">
+            <div class="card-icon"><i class="fa-solid fa-circle-info"></i></div>
+            <h3 class="h5 fw-bold mb-2">Understand Scams</h3>
+            <p class="text-muted small">Learn about phishing emails, fraudulent UPI transactions, malicious QR codes, and online buying scams.</p>
+            <a href="/crimes" class="text-primary fw-bold text-decoration-none small">Learn More <i class="fa-solid fa-arrow-right ms-1"></i></a>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="glass-card p-4 text-center">
+            <div class="card-icon"><i class="fa-solid fa-user-shield"></i></div>
+            <h3 class="h5 fw-bold mb-2">Defense Protocols</h3>
+            <p class="text-muted small">Stay updated with essential security tips: enable 2FA, generate robust passwords, and avoid sharing OTPs.</p>
+            <a href="/safety" class="text-primary fw-bold text-decoration-none small">Explore Safety Tips <i class="fa-solid fa-arrow-right ms-1"></i></a>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="glass-card p-4 text-center">
+            <div class="card-icon"><i class="fa-solid fa-file-invoice"></i></div>
+            <h3 class="h5 fw-bold mb-2">Report Incidents</h3>
+            <p class="text-muted small">Fallen victim or spotted a fraud? Record the incident details using our report form to alert administrators.</p>
+            <a href="/report" class="text-primary fw-bold text-decoration-none small">File Report <i class="fa-solid fa-arrow-right ms-1"></i></a>
+        </div>
+    </div>
+</div>
+
+<!-- Awareness / Statistics banner -->
+<div class="glass-card p-5 mb-5 text-center text-md-start">
+    <div class="row align-items-center">
+        <div class="col-md-8">
+            <h2 class="fw-bold mb-3">Did You Know?</h2>
+            <p class="mb-4 text-muted">
+                Over 80% of reported security incidents are driven by human error, such as clicking a malicious link or revealing an OTP to scammers. Building solid cyber security awareness is the first and most effective defense mechanism.
+            </p>
+            <div class="row text-center text-md-start">
+                <div class="col-sm-4 mb-3 mb-sm-0">
+                    <h4 class="fw-extrabold text-primary mb-0">1 in 3</h4>
+                    <span class="small text-muted">Web attacks are Phishing</span>
+                </div>
+                <div class="col-sm-4 mb-3 mb-sm-0">
+                    <h4 class="fw-extrabold text-cyan mb-0">90%</h4>
+                    <span class="small text-muted">Of hacks start with email</span>
+                </div>
+                <div class="col-sm-4">
+                    <h4 class="fw-extrabold text-purple mb-0">2FA</h4>
+                    <span class="small text-muted">Blocks 99% of bulk attacks</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 text-center mt-4 mt-md-0">
+            <div class="p-3 bg-light rounded-4 border border-info border-opacity-10 shadow-sm d-inline-block">
+                <h5 class="fw-bold mb-2 text-primary">Test Your Knowledge!</h5>
+                <p class="small text-muted mb-3">Think you are safe online? Take our quick 10-question cyber awareness quiz to verify!</p>
+                <a href="/quiz" class="btn btn-custom-primary btn-sm px-4">Start Quiz</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

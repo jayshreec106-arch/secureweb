@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+
+{% block title %}Admin Dashboard - SecureWeb{% endblock %}
+
+{% block content %}
+<div class="row align-items-center mb-4">
+    <div class="col-md-8 text-center text-md-start">
+        <span class="stats-badge"><i class="fa-solid fa-user-gear"></i> System Dashboard</span>
+        <h1 class="fw-bold">Reported Incidents Management</h1>
+        <p class="text-muted mb-0">Logged in as admin. Review reports submitted by portal visitors.</p>
+    </div>
+    <div class="col-md-4 text-center text-md-end mt-3 mt-md-0">
+        <a href="/logout" class="btn btn-outline-danger"><i class="fa-solid fa-sign-out me-2"></i>Sign Out</a>
+    </div>
+</div>
+
+<div class="row">
+    <!-- Summary Cards -->
+    <div class="col-md-4 mb-4">
+        <div class="glass-card p-3 text-center border-start border-info border-3">
+            <h6 class="text-muted mb-1 text-uppercase font-size-xs">Total Reports</h6>
+            <h2 class="fw-bold text-primary mb-0">{{ reports|length }}</h2>
+        </div>
+    </div>
+    <div class="col-md-4 mb-4">
+        <div class="glass-card p-3 text-center border-start border-warning border-3">
+            <h6 class="text-muted mb-1 text-uppercase font-size-xs">Phishing Submissions</h6>
+            {% set phish_count = namespace(value=0) %}
+            {% for r in reports %}
+                {% if r.crime_type == 'Phishing' %}
+                    {% set phish_count.value = phish_count.value + 1 %}
+                {% endif %}
+            {% endfor %}
+            <h2 class="fw-bold text-warning mb-0">{{ phish_count.value }}</h2>
+        </div>
+    </div>
+    <div class="col-md-4 mb-4">
+        <div class="glass-card p-3 text-center border-start border-danger border-3">
+            <h6 class="text-muted mb-1 text-uppercase font-size-xs">Financial Fraud (UPI/QR/Shop)</h6>
+            {% set fin_count = namespace(value=0) %}
+            {% for r in reports %}
+                {% if r.crime_type in ['UPI Fraud', 'QR Code Scam', 'Online Shopping Fraud'] %}
+                    {% set fin_count.value = fin_count.value + 1 %}
+                {% endif %}
+            {% endfor %}
+            <h2 class="fw-bold text-danger mb-0">{{ fin_count.value }}</h2>
+        </div>
+    </div>
+</div>
+
+<div class="glass-card p-4 p-md-5">
+    <h5 class="fw-bold mb-4"><i class="fa-solid fa-list-check me-2 text-primary"></i>Logged Incident Records</h5>
+    
+    {% if reports|length == 0 %}
+        <div class="text-center py-5">
+            <i class="fa-solid fa-folder-open fa-3x text-muted mb-3"></i>
+            <h5 class="text-muted">No reports found</h5>
+            <p class="text-muted small">No incidents have been submitted or stored in the database yet.</p>
+        </div>
+    {% else %}
+        <div class="table-responsive">
+            <table class="table admin-table align-middle">
+                <thead>
+                    <tr class="bg-light">
+                        <th style="width: 10%;">ID</th>
+                        <th style="width: 25%;">Reporter Details</th>
+                        <th style="width: 20%;">Crime Type</th>
+                        <th style="width: 30%;">Incident Description</th>
+                        <th style="width: 15%;" class="text-center">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for report in reports %}
+                        <tr>
+                            <td>
+                                <span class="badge bg-secondary">#{{ report.id }}</span>
+                            </td>
+                            <td>
+                                <div class="fw-bold text-dark">{{ report.name }}</div>
+                                <div class="small text-muted mb-1"><i class="fa-solid fa-envelope me-1"></i>{{ report.email }}</div>
+                                <div class="small text-muted" style="font-size: 0.75rem;"><i class="fa-solid fa-calendar-days me-1"></i>{{ report.date }}</div>
+                            </td>
+                            <td>
+                                {% if report.crime_type == 'Phishing' %}
+                                    <span class="badge bg-danger bg-opacity-10 text-danger border border-danger border-opacity-20 px-3 py-2 rounded-pill"><i class="fa-solid fa-envelope-open-text me-1"></i>Phishing</span>
+                                {% elif report.crime_type == 'UPI Fraud' %}
+                                    <span class="badge bg-warning bg-opacity-10 text-warning-emphasis border border-warning border-opacity-20 px-3 py-2 rounded-pill"><i class="fa-solid fa-credit-card me-1"></i>UPI Fraud</span>
+                                {% elif report.crime_type == 'QR Code Scam' %}
+                                    <span class="badge bg-warning bg-opacity-10 text-warning-emphasis border border-warning border-opacity-20 px-3 py-2 rounded-pill"><i class="fa-solid fa-qrcode me-1"></i>QR Code Scam</span>
+                                {% elif report.crime_type == 'Social Media Scam' %}
+                                    <span class="badge bg-primary bg-opacity-10 text-primary border border-primary border-opacity-20 px-3 py-2 rounded-pill"><i class="fa-solid fa-user-group me-1"></i>Social Media</span>
+                                {% elif report.crime_type == 'Online Shopping Fraud' %}
+                                    <span class="badge bg-info bg-opacity-10 text-info border border-info border-opacity-20 px-3 py-2 rounded-pill"><i class="fa-solid fa-cart-shopping me-1"></i>Online Shopping</span>
+                                {% else %}
+                                    <span class="badge bg-secondary bg-opacity-10 text-secondary border border-secondary border-opacity-20 px-3 py-2 rounded-pill">{{ report.crime_type }}</span>
+                                {% endif %}
+                            </td>
+                            <td>
+                                <p class="mb-0 text-muted small" style="white-space: pre-line; max-height: 120px; overflow-y: auto;">
+                                    {{ report.message }}
+                                </p>
+                            </td>
+                            <td class="text-center">
+                                <form action="{{ url_for('delete_report', report_id=report.id) }}" method="POST" onsubmit="return confirm('Are you sure you want to permanently delete this report from the database?');">
+                                    <button type="submit" class="btn btn-sm btn-outline-danger px-3 py-1 rounded-pill">
+                                        <i class="fa-solid fa-trash me-1"></i>Delete
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,224 @@
+{% extends 'base.html' %}
+
+{% block title %}Cyber Crime Types - SecureWeb{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-12 text-center my-4">
+        <span class="stats-badge"><i class="fa-solid fa-bug"></i> Threat Intelligence</span>
+        <h1 class="fw-bold">Common Cyber Crimes & Scams</h1>
+        <p class="text-muted max-width-600 mx-auto">
+            Understanding how online attackers target users is the first step in prevention. Learn about the most common attack vectors below.
+        </p>
+    </div>
+</div>
+
+<div class="row g-4">
+    <!-- Crime Navigation (Left Column) -->
+    <div class="col-lg-4">
+        <div class="glass-card p-3 sticky-lg-top" style="top: 90px; z-index: 10;">
+            <h5 class="fw-bold mb-3 px-2 text-primary"><i class="fa-solid fa-list-check me-2"></i>Select Crime Type</h5>
+            <div class="list-group list-group-flush" id="crimeList" role="tablist">
+                <a class="list-group-item list-group-item-custom active" id="list-phishing-list" data-bs-toggle="list" href="#list-phishing" role="tab" aria-controls="list-phishing">
+                    <i class="fa-solid fa-envelope-open-text me-2"></i> 1. Phishing Scams
+                </a>
+                <a class="list-group-item list-group-item-custom" id="list-upi-list" data-bs-toggle="list" href="#list-upi" role="tab" aria-controls="list-upi">
+                    <i class="fa-solid fa-credit-card me-2"></i> 2. UPI Fraud
+                </a>
+                <a class="list-group-item list-group-item-custom" id="list-qr-list" data-bs-toggle="list" href="#list-qr" role="tab" aria-controls="list-qr">
+                    <i class="fa-solid fa-qrcode me-2"></i> 3. QR Code Scams
+                </a>
+                <a class="list-group-item list-group-item-custom" id="list-social-list" data-bs-toggle="list" href="#list-social" role="tab" aria-controls="list-social">
+                    <i class="fa-solid fa-user-group me-2"></i> 4. Social Media Scams
+                </a>
+                <a class="list-group-item list-group-item-custom" id="list-shopping-list" data-bs-toggle="list" href="#list-shopping" role="tab" aria-controls="list-shopping">
+                    <i class="fa-solid fa-cart-shopping me-2"></i> 5. Online Shopping Fraud
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Crime Content (Right Column) -->
+    <div class="col-lg-8">
+        <div class="tab-content" id="nav-tabContent">
+            
+            <!-- 1. Phishing -->
+            <div class="tab-pane fade show active" id="list-phishing" role="tabpanel" aria-labelledby="list-phishing-list">
+                <div class="glass-card p-4 p-md-5">
+                    <div class="d-flex align-items-center mb-4">
+                        <div class="card-icon me-3 mb-0"><i class="fa-solid fa-envelope-open-text"></i></div>
+                        <div>
+                            <h2 class="fw-bold mb-0">Phishing Scams</h2>
+                            <span class="badge bg-danger">Critical Threat</span>
+                        </div>
+                    </div>
+                    
+                    <h5 class="fw-bold text-primary mt-4"><i class="fa-solid fa-circle-question me-2"></i>What It Is</h5>
+                    <p class="text-muted">
+                        Phishing is a method where attackers send deceptive communications (mostly emails, SMS, or direct messages) designed to look like they come from a reputable, trusted organization (e.g., bank, Netflix, college portals, government agencies).
+                    </p>
+                    
+                    <h5 class="fw-bold text-primary mt-4"><i class="fa-solid fa-gears me-2"></i>How It Works</h5>
+                    <ol class="text-muted mb-4">
+                        <li class="mb-2"><strong>Deceptive Delivery:</strong> You receive an email stating your account will be suspended unless you click a link to verify credentials.</li>
+                        <li class="mb-2"><strong>The Trap:</strong> The link takes you to a fake website that looks identical to the official login page.</li>
+                        <li class="mb-2"><strong>Data Capture:</strong> When you enter your username, password, or credit card details, they are sent directly to the scammer.</li>
+                    </ol>
+                    
+                    <div class="p-3 bg-info bg-opacity-10 border-start border-info border-3 rounded-3 mb-4">
+                        <h6 class="fw-bold text-dark mb-2"><i class="fa-solid fa-triangle-exclamation me-1"></i>Common Phishing Clues:</h6>
+                        <ul class="small text-muted mb-0">
+                            <li>Generic greeting: "Dear Customer" instead of your name.</li>
+                            <li>Slightly misspelled email domain (e.g., info@netf1ix.com).</li>
+                            <li>Urgent call to action (e.g., "Act within 24 hours or face suspension").</li>
+                        </ul>
+                    </div>
+                    
+                    <h5 class="fw-bold text-success mt-4"><i class="fa-solid fa-shield-halved me-2"></i>Prevention Tips</h5>
+                    <ul class="text-muted">
+                        <li class="mb-2">Never click links in unsolicited emails or SMS. Instead, type the official website address directly into your browser.</li>
+                        <li class="mb-2">Double-check the sender's actual email address, not just the display name.</li>
+                        <li class="mb-2">Use two-factor authentication (2FA) so that password theft alone isn't enough to compromise your account.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 2. UPI Fraud -->
+            <div class="tab-pane fade" id="list-upi" role="tabpanel" aria-labelledby="list-upi-list">
+                <div class="glass-card p-4 p-md-5">
+                    <div class="d-flex align-items-center mb-4">
+                        <div class="card-icon me-3 mb-0"><i class="fa-solid fa-credit-card"></i></div>
+                        <div>
+                            <h2 class="fw-bold mb-0">UPI Fraud</h2>
+                            <span class="badge bg-warning text-dark">High Threat</span>
+                        </div>
+                    </div>
+                    
+                    <h5 class="fw-bold text-primary mt-4"><i class="fa-solid fa-circle-question me-2"></i>What It Is</h5>
+                    <p class="text-muted">
+                        UPI (Unified Payments Interface) fraud occurs when cybercriminals exploit digital payment systems to steal money from victims' bank accounts. In most cases, scammers exploit users' lack of technical understanding regarding how UPI transactions function.
+                    </p>
+                    
+                    <h5 class="fw-bold text-primary mt-4"><i class="fa-solid fa-gears me-2"></i>How It Works</h5>
+                    <ol class="text-muted mb-4">
+                        <li class="mb-2"><strong>Fake Support/Buyer:</strong> Scammers pose as customer support agents, bank executives, or online buyers on sites like OLX.</li>
+                        <li class="mb-2"><strong>Request Money Trap:</strong> The scammer initiates a "Request Money" transaction through a UPI app and asks the victim to authorize it.</li>
+                        <li class="mb-2"><strong>PIN input:</strong> The victim enters their UPI PIN thinking they are *receiving* money, but this actually transfers the money to the scammer.</li>
+                    </ol>
+                    
+                    <div class="p-3 bg-danger bg-opacity-10 border-start border-danger border-3 rounded-3 mb-4">
+                        <h6 class="fw-bold text-dark mb-1"><i class="fa-solid fa-circle-exclamation me-1"></i>Golden Rule of UPI:</h6>
+                        <p class="small text-muted mb-0">
+                            <strong>UPI PIN is only required to SEND/DEBIT money, never to receive it.</strong> If someone asks you to enter your PIN to receive funds, they are trying to rob you.
+                        </p>
+                    </div>
+                    
+                    <h5 class="fw-bold text-success mt-4"><i class="fa-solid fa-shield-halved me-2"></i>Prevention Tips</h5>
+                    <ul class="text-muted">
+                        <li class="mb-2">Never share your UPI PIN or banking passwords with anyone under any circumstances.</li>
+                        <li class="mb-2">Do not click on UPI request notifications from unknown callers or marketplace buyers.</li>
+                        <li class="mb-2">Always read the transaction screen message carefully before entering your PIN.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 3. QR Code Scam -->
+            <div class="tab-pane fade" id="list-qr" role="tabpanel" aria-labelledby="list-qr-list">
+                <div class="glass-card p-4 p-md-5">
+                    <div class="d-flex align-items-center mb-4">
+                        <div class="card-icon me-3 mb-0"><i class="fa-solid fa-qrcode"></i></div>
+                        <div>
+                            <h2 class="fw-bold mb-0">QR Code Scams</h2>
+                            <span class="badge bg-warning text-dark">Medium Threat</span>
+                        </div>
+                    </div>
+                    
+                    <h5 class="fw-bold text-primary mt-4"><i class="fa-solid fa-circle-question me-2"></i>What It Is</h5>
+                    <p class="text-muted">
+                        A QR (Quick Response) code scam involves malicious barcodes designed to direct users to phishing sites, initiate fraudulent UPI payment authorizations, or install silent malware applications on the scanned mobile device.
+                    </p>
+                    
+                    <h5 class="fw-bold text-primary mt-4"><i class="fa-solid fa-gears me-2"></i>How It Works</h5>
+                    <ol class="text-muted mb-4">
+                        <li class="mb-2"><strong>Bait Offer:</strong> Scammers send QR codes via WhatsApp or email, claiming it will credit cashback, lucky draw prizes, or payment for a product you are selling.</li>
+                        <li class="mb-2"><strong>The Scan:</strong> You scan the code using a scanner or UPI app.</li>
+                        <li class="mb-2"><strong>The Action:</strong> The scanned code either redirects you to a web page asking for payment confirmation, or triggers a payment debit from your account.</li>
+                    </ol>
+                    
+                    <h5 class="fw-bold text-success mt-4"><i class="fa-solid fa-shield-halved me-2"></i>Prevention Tips</h5>
+                    <ul class="text-muted">
+                        <li class="mb-2">Never scan a QR code if you are expecting to receive money. </li>
+                        <li class="mb-2">Avoid scanning printed QR codes pasted randomly on public spaces unless verified.</li>
+                        <li class="mb-2">When scanning, check the destination URL displayed on your screen before proceeding.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 4. Social Media Scam -->
+            <div class="tab-pane fade" id="list-social" role="tabpanel" aria-labelledby="list-social-list">
+                <div class="glass-card p-4 p-md-5">
+                    <div class="d-flex align-items-center mb-4">
+                        <div class="card-icon me-3 mb-0"><i class="fa-solid fa-user-group"></i></div>
+                        <div>
+                            <h2 class="fw-bold mb-0">Social Media Scams</h2>
+                            <span class="badge bg-warning text-dark">High Threat</span>
+                        </div>
+                    </div>
+                    
+                    <h5 class="fw-bold text-primary mt-4"><i class="fa-solid fa-circle-question me-2"></i>What It Is</h5>
+                    <p class="text-muted">
+                        Social media scams leverage identity theft, profile cloning, fake lottery alerts, or deceptive advertising on popular platforms like Instagram, Facebook, and Telegram to exploit trust and steal financial assets.
+                    </p>
+                    
+                    <h5 class="fw-bold text-primary mt-4"><i class="fa-solid fa-gears me-2"></i>How It Works</h5>
+                    <ol class="text-muted mb-4">
+                        <li class="mb-2"><strong>Profile Cloning:</strong> Attackers copy pictures and details of your close friend to create a fake clone account.</li>
+                        <li class="mb-2"><strong>Emergency Plea:</strong> The clone profile messages you, claiming an emergency (medical accident, stuck somewhere) and asks for immediate money transfer.</li>
+                        <li class="mb-2"><strong>Impersonation Sweep:</strong> Once you transfer the money, they block your account.</li>
+                    </ol>
+                    
+                    <h5 class="fw-bold text-success mt-4"><i class="fa-solid fa-shield-halved me-2"></i>Prevention Tips</h5>
+                    <ul class="text-muted">
+                        <li class="mb-2">If a friend asks for money on social media, call them directly on their cellular number to verify first.</li>
+                        <li class="mb-2">Never share secondary login codes (OTP, reset links) sent to your phone. Scammers use these to hijack accounts.</li>
+                        <li class="mb-2">Set your profiles to private and restrict strangers from viewing your friend lists.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 5. Online Shopping Fraud -->
+            <div class="tab-pane fade" id="list-shopping" role="tabpanel" aria-labelledby="list-shopping-list">
+                <div class="glass-card p-4 p-md-5">
+                    <div class="d-flex align-items-center mb-4">
+                        <div class="card-icon me-3 mb-0"><i class="fa-solid fa-cart-shopping"></i></div>
+                        <div>
+                            <h2 class="fw-bold mb-0">Online Shopping Fraud</h2>
+                            <span class="badge bg-info">Medium Threat</span>
+                        </div>
+                    </div>
+                    
+                    <h5 class="fw-bold text-primary mt-4"><i class="fa-solid fa-circle-question me-2"></i>What It Is</h5>
+                    <p class="text-muted">
+                        This fraud involves dummy websites claiming to sell premium electronics, clothing, or products at heavily discounted rates. They accept payments but never deliver the products, or send sub-standard fake items.
+                    </p>
+                    
+                    <h5 class="fw-bold text-primary mt-4"><i class="fa-solid fa-gears me-2"></i>How It Works</h5>
+                    <ol class="text-muted mb-4">
+                        <li class="mb-2"><strong>Advert Baiting:</strong> Scammers place alluring ads on Instagram or Facebook showcasing high-value products at 80% discounts.</li>
+                        <li class="mb-2"><strong>Checkout & Pay:</strong> You click the link, register on the clean-looking website, and pay via UPI or credit card.</li>
+                        <li class="mb-2"><strong>Ghosting:</strong> The site disappears, customer support email bounces back, and no product is shipped.</li>
+                    </ol>
+                    
+                    <h5 class="fw-bold text-success mt-4"><i class="fa-solid fa-shield-halved me-2"></i>Prevention Tips</h5>
+                    <ul class="text-muted">
+                        <li class="mb-2">Shop only from recognized, verified brands or trusted marketplaces.</li>
+                        <li class="mb-2">Be cautious of prices that seem too good to be true—they almost always are fake.</li>
+                        <li class="mb-2">Look for customer reviews on external sites and verify physical addresses/contact details.</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block title %}Report Fraud - SecureWeb{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12 text-center my-4">
+        <span class="stats-badge"><i class="fa-solid fa-triangle-exclamation"></i> Emergency Report</span>
+        <h1 class="fw-bold">Report Cyber Fraud Incident</h1>
+        <p class="text-muted max-width-600 mx-auto">
+            Experienced a scam or spotted a suspicious activity? Enter details here. The incident records will be securely logged in our system.
+        </p>
+    </div>
+</div>
+
+<div class="row justify-content-center">
+    <div class="col-lg-7">
+        <div class="glass-card p-4 p-md-5">
+            <h4 class="fw-bold mb-4 text-center"><i class="fa-solid fa-file-shield me-2 text-primary"></i>Incident Form</h4>
+            
+            <form action="/report" method="POST" id="reportForm" novalidate>
+                <!-- Name Field -->
+                <div class="mb-3">
+                    <label for="name" class="form-label fw-600">Full Name</label>
+                    <div class="input-group">
+                        <span class="input-group-text bg-white border-end-0 border-info-subtle"><i class="fa-solid fa-user text-muted"></i></span>
+                        <input type="text" class="form-control form-control-custom border-start-0 ps-0" id="name" name="name" required placeholder="Enter your full name">
+                        <div class="invalid-feedback">Please enter your name (minimum 3 characters).</div>
+                    </div>
+                </div>
+                
+                <!-- Email Field -->
+                <div class="mb-3">
+                    <label for="email" class="form-label fw-600">Email Address</label>
+                    <div class="input-group">
+                        <span class="input-group-text bg-white border-end-0 border-info-subtle"><i class="fa-solid fa-envelope text-muted"></i></span>
+                        <input type="email" class="form-control form-control-custom border-start-0 ps-0" id="email" name="email" required placeholder="Enter your email address">
+                        <div class="invalid-feedback">Please enter a valid email address (e.g., name@example.com).</div>
+                    </div>
+                </div>
+                
+                <!-- Crime Type Selection -->
+                <div class="mb-3">
+                    <label for="crime_type" class="form-label fw-600">Type of Cyber Crime</label>
+                    <div class="input-group">
+                        <span class="input-group-text bg-white border-end-0 border-info-subtle"><i class="fa-solid fa-bugs text-muted"></i></span>
+                        <select class="form-select form-control-custom border-start-0 ps-0" id="crime_type" name="crime_type" required>
+                            <option value="" disabled selected>-- Select Incident Category --</option>
+                            <option value="Phishing">Phishing Scam</option>
+                            <option value="UPI Fraud">UPI Fraud</option>
+                            <option value="QR Code Scam">QR Code Scam</option>
+                            <option value="Social Media Scam">Social Media Scam</option>
+                            <option value="Online Shopping Fraud">Online Shopping Fraud</option>
+                            <option value="Others">Others / Inquiries</option>
+                        </select>
+                        <div class="invalid-feedback">Please select a category.</div>
+                    </div>
+                </div>
+                
+                <!-- Message Field -->
+                <div class="mb-4">
+                    <label for="message" class="form-label fw-600">Detailed Description of Incident</label>
+                    <textarea class="form-control form-control-custom" id="message" name="message" rows="5" required placeholder="Please describe how the incident occurred, transaction amounts, messages received, and any other helpful details..."></textarea>
+                    <div class="invalid-feedback">Please provide a detailed description (minimum 10 characters).</div>
+                </div>
+                
+                <!-- Submit Button -->
+                <div class="d-grid mt-2">
+                    <button type="submit" class="btn btn-custom-primary btn-lg"><i class="fa-solid fa-paper-plane me-2"></i>Submit Report</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+
+{% block title %}Cyber Safety Tips - SecureWeb{% endblock %}
+
+{% block content %}
+<div class="row mb-5">
+    <div class="col-12 text-center my-4">
+        <span class="stats-badge"><i class="fa-solid fa-lock"></i> Preventive Defense</span>
+        <h1 class="fw-bold">Essential Cyber Safety Tips</h1>
+        <p class="text-muted max-width-600 mx-auto">
+            Establishing clean digital habits can prevent the vast majority of online security breaches. Follow these guidelines to stay protected.
+        </p>
+    </div>
+</div>
+
+<div class="row g-4 mb-5">
+    <!-- Tip 1: OTP Sharing -->
+    <div class="col-md-6 col-lg-4">
+        <div class="glass-card p-4">
+            <div class="card-icon text-danger"><i class="fa-solid fa-key"></i></div>
+            <h3 class="h5 fw-bold mb-3">1. Never Share OTPs</h3>
+            <p class="text-muted small">
+                An OTP (One-Time Password) is the final guard verifying transactions or account logins. Sharing it is equivalent to handing over the keys to your vault.
+            </p>
+            <div class="bg-danger bg-opacity-10 p-2 rounded text-danger small fw-bold">
+                <i class="fa-solid fa-circle-exclamation me-1"></i> No bank or service provider will ever call to ask you for an OTP.
+            </div>
+        </div>
+    </div>
+
+    <!-- Tip 2: Strong Passwords -->
+    <div class="col-md-6 col-lg-4">
+        <div class="glass-card p-4">
+            <div class="card-icon text-primary"><i class="fa-solid fa-shield-virus"></i></div>
+            <h3 class="h5 fw-bold mb-3">2. Use Strong Passwords</h3>
+            <p class="text-muted small">
+                Avoid passwords containing dictionary words, birthdates, or sequential numbers. Use a mix of uppercase, lowercase, special characters, and digits.
+            </p>
+            <div class="bg-primary bg-opacity-10 p-2 rounded text-primary small fw-bold">
+                <i class="fa-solid fa-lightbulb me-1"></i> Make passphrase sentences like "BlUe!SkY#77_RaIn" which are tough for bots to crack.
+            </div>
+        </div>
+    </div>
+
+    <!-- Tip 3: Two-Factor Authentication -->
+    <div class="col-md-6 col-lg-4">
+        <div class="glass-card p-4">
+            <div class="card-icon text-success"><i class="fa-solid fa-shield-halved"></i></div>
+            <h3 class="h5 fw-bold mb-3">3. Enable 2-Factor Auth (2FA)</h3>
+            <p class="text-muted small">
+                2FA requires an additional authentication step (e.g. mobile authenticator app prompt) along with your regular password, adding an secondary security layer.
+            </p>
+            <div class="bg-success bg-opacity-10 p-2 rounded text-success small fw-bold">
+                <i class="fa-solid fa-circle-check me-1"></i> Blocks up to 99% of automated credential theft attempts.
+            </div>
+        </div>
+    </div>
+
+    <!-- Tip 4: Avoid Suspicious Links -->
+    <div class="col-md-6 col-lg-4">
+        <div class="glass-card p-4">
+            <div class="card-icon text-warning"><i class="fa-solid fa-link-slash"></i></div>
+            <h3 class="h5 fw-bold mb-3">4. Avoid Suspicious Links</h3>
+            <p class="text-muted small">
+                Always hover over URLs to inspect their true destination. Scammers disguise links to lead to malicious cloning pages.
+            </p>
+            <div class="bg-warning bg-opacity-10 p-2 rounded text-warning-emphasis small fw-bold">
+                <i class="fa-solid fa-triangle-exclamation me-1"></i> If you receive SMS or WhatsApp deals with weird links, delete them.
+            </div>
+        </div>
+    </div>
+
+    <!-- Tip 5: Software Updates -->
+    <div class="col-md-6 col-lg-4">
+        <div class="glass-card p-4">
+            <div class="card-icon text-info"><i class="fa-solid fa-rotate"></i></div>
+            <h3 class="h5 fw-bold mb-3">5. Keep Software Updated</h3>
+            <p class="text-muted small">
+                OS and app updates patch critical security vulnerabilities that hackers exploit. Keep your computer and phone software updated regularly.
+            </p>
+            <div class="bg-info bg-opacity-10 p-2 rounded text-info-emphasis small fw-bold">
+                <i class="fa-solid fa-circle-info me-1"></i> Enable automatic updates on your devices for hassle-free protection.
+            </div>
+        </div>
+    </div>
+
+    <!-- Tip 6: Backup Data -->
+    <div class="col-md-6 col-lg-4">
+        <div class="glass-card p-4">
+            <div class="card-icon text-purple"><i class="fa-solid fa-floppy-disk"></i></div>
+            <h3 class="h5 fw-bold mb-3">6. Regular Backup Data</h3>
+            <p class="text-muted small">
+                Keep backup records of important pictures, document files, and university assignments on offline hard drives or secure cloud databases.
+            </p>
+            <div class="bg-purple bg-opacity-10 p-2 rounded text-purple-emphasis small fw-bold">
+                <i class="fa-solid fa-shield me-1"></i> Saves your files in the event of malware or ransomware attacks.
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Infographic/Action Block -->
+<div class="glass-card p-5 mb-5 bg-gradient">
+    <div class="row align-items-center">
+        <div class="col-md-2 text-center mb-3 mb-md-0">
+            <i class="fa-solid fa-phone-volume fa-3x text-primary"></i>
+        </div>
+        <div class="col-md-10 text-center text-md-start">
+            <h4 class="fw-bold">Spotted a Cyber Crime or Scam?</h4>
+            <p class="text-muted mb-3">
+                If you have experienced or witnessed digital fraud, reporting it immediately can prevent others from falling into the same trap. You can report it here on our local reporting page, or officially file a complaint at the National Cyber Crime Portal.
+            </p>
+            <div class="d-flex flex-column flex-sm-row gap-2 mt-2">
+                <a href="/report" class="btn btn-custom-primary"><i class="fa-solid fa-triangle-exclamation me-1"></i> Report on our Portal</a>
+                <a href="https://www.cybercrime.gov.in" target="_blank" class="btn btn-custom-secondary"><i class="fa-solid fa-arrow-up-right-from-square me-1"></i> Visit National Portal</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

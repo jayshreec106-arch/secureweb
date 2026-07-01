@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% block title %}Cyber Safety Awareness Quiz - SecureWeb{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12 text-center my-4">
+        <span class="stats-badge"><i class="fa-solid fa-gamepad"></i> Skill Assessment</span>
+        <h1 class="fw-bold">Test Your Cyber Security Awareness</h1>
+        <p class="text-muted max-width-600 mx-auto">
+            Take this quick 10-question quiz to test your readiness in spotting common digital frauds and safety measures.
+        </p>
+    </div>
+</div>
+
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+        <div class="glass-card p-4 p-md-5">
+            <!-- Progress Bar -->
+            <div class="quiz-progress-bar">
+                <div class="quiz-progress-fill" id="progress-fill"></div>
+            </div>
+
+            <!-- Quiz Main Container -->
+            <div id="quiz-body">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <span class="badge bg-secondary" id="question-number">Question 1 of 10</span>
+                    <span class="text-muted small"><i class="fa-solid fa-clock"></i> No Time Limit</span>
+                </div>
+                
+                <!-- Question Text -->
+                <h4 class="fw-bold mb-4" id="question-text">Loading question...</h4>
+                
+                <!-- Options buttons container -->
+                <div class="d-grid gap-2 mb-4" id="options-container">
+                    <!-- Javascript generates options here -->
+                </div>
+                
+                <!-- Answer Explanation box (Hidden initially) -->
+                <div class="p-3 bg-light rounded-3 border-start border-info border-3 mb-4" id="explanation-box" style="display: none;">
+                    <h6 class="fw-bold text-info"><i class="fa-solid fa-circle-info me-1"></i> Security Fact:</h6>
+                    <p class="small text-muted mb-0" id="explanation-text"></p>
+                </div>
+                
+                <!-- Next Button -->
+                <div class="text-end">
+                    <button class="btn btn-custom-primary" id="next-btn" style="display: none;">Next Question</button>
+                </div>
+            </div>
+
+            <!-- Quiz Results Container (Hidden initially) -->
+            <div id="result-body" style="display: none;" class="text-center py-4">
+                <div class="mb-4">
+                    <i class="fa-solid fa-square-poll-vertical fa-4x text-primary mb-3"></i>
+                    <h2 class="fw-bold">Quiz Completed!</h2>
+                </div>
+                
+                <!-- Score Display -->
+                <div class="my-4">
+                    <h1 class="display-3 fw-bold text-primary" id="score-percentage">0%</h1>
+                    <p class="text-muted" id="score-text">You scored 0 out of 10 questions.</p>
+                </div>
+                
+                <!-- Custom Advice banner depending on score -->
+                <div id="advice-banner" class="alert alert-info py-3 my-4">
+                    <!-- Advice string generated dynamically -->
+                </div>
+                
+                <div class="mt-4">
+                    <button class="btn btn-custom-primary btn-lg px-5" id="retry-btn"><i class="fa-solid fa-rotate me-2"></i>Try Again</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<!-- Inject Quiz Data and Logic -->
+<script src="{{ url_for('static', filename='js/quiz.js') }}"></script>
+{% endblock %}
